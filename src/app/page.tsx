@@ -1,93 +1,133 @@
+import classes from '@/app/page.module.scss'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import {
+  faGithub,
+  faInstagram,
+  faSpotify,
+  faTelegram,
+} from '@fortawesome/free-brands-svg-icons'
 import Image from 'next/image'
-import styles from './page.module.css'
+import { getSpotifyNowPlaying } from '@/spotify/api'
 
-export default function Home() {
+export default async function Home() {
+  const spotifyInfo = await getSpotifyNowPlaying()
+
   return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>src/app/page.tsx</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+    <main className={classes.main}>
+      <div className={classes.heading}>
+        <Image
+          src="https://avatars.githubusercontent.com/alyxmp4"
+          alt="avatar"
+          width={90}
+          height={90}
+          className={classes.avatar}
+        />
+        <h2>
+          Hey I&apos;m Arsen and I&apos;m full-stack developer.{' '}
+          <span
+            style={{
+              color: 'darkgrey',
+            }}
           >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
+            Nothing really extraordinary, right?
+          </span>{' '}
+        </h2>
+      </div>
+      <div className={classes.cards}>
+        <div className={classes.card}>
+          <a href="https://instagram.com/alyxmp4">
+            <FontAwesomeIcon
+              icon={faInstagram}
+              focusable={true}
+              size="2xl"
+              className={classes.cardIcon}
             />
           </a>
+          <div className={classes.cardMeta}>
+            <a
+              href="https://instagram.com/alyxmp4"
+              className={classes.cardTitle}
+            >
+              <h3>Instagram</h3>
+            </a>
+            <p className={classes.cardDescription}>
+              None of me personality in there but why not?
+            </p>
+          </div>
         </div>
-      </div>
-
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className={styles.grid}>
+        <div className={classes.card}>
+          <a href="https://t.me/alyxmp4">
+            <FontAwesomeIcon
+              icon={faTelegram}
+              focusable={true}
+              size="2xl"
+              className={classes.cardIcon}
+            />
+          </a>
+          <div className={classes.cardMeta}>
+            <a
+              href="https://instagram.com/alyxmp4"
+              className={classes.cardTitle}
+            >
+              <h3>Telegram</h3>
+            </a>
+            <p className={classes.cardDescription}>
+              They call it privacy, and you can text me anytime there
+            </p>
+          </div>
+        </div>
+        <div className={classes.card}>
+          <a href="https://github.com/alyxmp4">
+            <FontAwesomeIcon
+              icon={faGithub}
+              focusable={true}
+              size="2xl"
+              className={classes.cardIcon}
+            />
+          </a>
+          <div className={classes.cardMeta}>
+            <a href="https://github.com/alyxmp4" className={classes.cardTitle}>
+              <h3>Github</h3>
+            </a>
+            <p className={classes.cardDescription}>
+              Didn&apos;t you forget I am a dev? Check some repos there!
+            </p>
+          </div>
+        </div>
+        {spotifyInfo.isPlaying ? (
+          <div className={classes.card}>
+            <a href={spotifyInfo.trackUrl}>
+              <Image
+                src={spotifyInfo.albumImage as string}
+                alt="album"
+                width={48}
+                height={48}
+                className={classes.albumImage}
+              />
+            </a>
+            <div className={classes.cardMeta}>
+              <a href={spotifyInfo.trackUrl} className={classes.cardTitle}>
+                <h3>{spotifyInfo.name}</h3>
+              </a>
+              <a
+                href={spotifyInfo.artistLink}
+                className={`${classes.cardDescription} ${classes.artistUrl}`}
+              >
+                <FontAwesomeIcon icon={faSpotify} /> {spotifyInfo.artist} • Now
+                listening to on Spotify
+              </a>
+            </div>
+          </div>
+        ) : (
+          <></>
+        )}
         <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
+          href="mailto: me@alyxmp4.pro"
+          style={{
+            color: 'darkgrey',
+          }}
         >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore the Next.js 13 playground.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
+          me@alyxmp4.pro
         </a>
       </div>
     </main>

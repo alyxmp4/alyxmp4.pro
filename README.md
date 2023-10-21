@@ -1,3 +1,8 @@
+## Personal website with links and Spotify now playing card
+
+Configure your Spotify API for website using [this](https://leerob.io/blog/spotify-api-nextjs) and enter it into `.env.local` or `.env.production`
+as it is shown in `.env.example`. Also you can set up Google Analytics in there too. This website markdown is sort of a remake of [superhooman.co](https://superhooman.co/)
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started

@@ -4,4 +4,7 @@
     <option name="show" value="ASK" />
     <option name="description" value="" />
   </component>
+  <component name="ProjectResources">
+    <resource url="http://www.sitemaps.org/schemas/sitemap/0.9" location="$PROJECT_DIR$" />
+  </component>
 </project>

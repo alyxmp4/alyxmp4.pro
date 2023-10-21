@@ -1,0 +1,157 @@
+.main {
+  display: flex;
+  margin: 10rem auto;
+  flex-direction: column;
+
+  .heading {
+    max-width: 900px;
+    width: 70%;
+    margin-bottom: 0.5rem;
+    justify-content: space-between;
+
+    h2 {
+      max-width: 600px;
+    }
+
+    display: flex;
+    flex-direction: row;
+
+    .avatar {
+      border-radius: 50%;
+      margin-left: 0.8rem;
+      margin-right: 0.8rem;
+    }
+  }
+
+  .cards {
+    width: 75%;
+    align-self: center;
+
+    .artistUrl {
+      transition: all 0.35s ease-in-out;
+    }
+
+    .artistUrl:hover {
+      color: dimgrey;
+    }
+
+    .albumImage {
+      border-radius: 50%;
+      margin: 0 auto;
+      transition: all 0.35s ease-in-out;
+    }
+
+    .albumImage:hover {
+      filter: brightness(50%);
+    }
+  }
+
+  .songLink {
+    color: yellowgreen;
+    transition: all 0.35s ease-in-out;
+    white-space: nowrap;
+  }
+
+  .songLink:hover {
+    color: forestgreen;
+  }
+
+  .card {
+    display: flex;
+    margin: 1.5rem;
+    flex-direction: row;
+    justify-content: space-between;
+
+    .cardDescription {
+      color: darkgrey;
+    }
+
+    .cardMeta {
+      padding-left: 1rem;
+      width: 90%;
+      text-align: left;
+
+      .cardTitle {
+        transition: all 0.35s ease-in-out;
+      }
+
+      .cardTitle:hover {
+        color: darkgrey;
+      }
+    }
+
+    .cardIcon {
+      padding: 0.255rem;
+      transform: scale(1.5);
+      transition: all 0.35s ease-in-out;
+    }
+
+    .cardIcon:hover {
+      color: darkgrey;
+    }
+  }
+}
+
+@media (max-width: 980px) {
+  .main {
+    padding-left: 4rem;
+
+    .heading {
+      width: 80%;
+      flex-direction: column;
+
+      .avatar {
+        margin-bottom: 1rem;
+      }
+    }
+
+    .cards {
+      width: 70%;
+      align-self: flex-start;
+    }
+  }
+}
+
+@media (max-width: 650px) {
+  .main {
+    margin: 2rem auto;
+    padding: 2rem;
+
+    .heading {
+      width: 100%;
+      font-size: 14px;
+      flex-direction: column;
+    }
+
+    .cards {
+      width: 100%;
+      font-size: 14px;
+
+      .albumImage {
+        height: 35px;
+        width: 35px;
+      }
+    }
+
+    .card {
+      .cardIcon {
+        transform: scale(1);
+      }
+    }
+  }
+}
+
+@media (max-width: 360px) {
+  .main {
+    margin: 8rem auto;
+    padding: 2rem;
+
+    .heading {
+      width: 90%;
+    }
+
+    .cards {
+      font-size: 14px;
+    }
+  }
+}
